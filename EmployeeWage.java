@@ -10,21 +10,24 @@ public class EmployeeWage {
 		int WAGE_PER_HR = 20;
 		int FULL_DAY_HRS = 8;
 		int PART_TIME_HRS = 4;
-		double daily_Wage;
+		int NUM_OF_WORKING_DAYS = 20;
+		double daily_Wage = 0;
+		double monthly_Wage = 0;
 		Random rand = new Random();
-		int random = rand.nextInt(3);
-		switch (random) {
-		case 1:
-			daily_Wage = WAGE_PER_HR * FULL_DAY_HRS;
-			System.out.println("Employee - Present" + " " + "daily_Wage = " + daily_Wage);
-			break;
-		case 2:
-			daily_Wage = WAGE_PER_HR * PART_TIME_HRS;
-			System.out.println("Employee - Present" + " " + "daily_Wage = " + daily_Wage);
-			break;
-		case 0:
-			System.out.println("Employee - Absent" + " " + "Daily Wage = 0");
-			break;
+		for (int i = 0; i < NUM_OF_WORKING_DAYS; i++) {
+			int random = rand.nextInt(3);
+			switch (random) {
+			case 1:
+				daily_Wage = WAGE_PER_HR * FULL_DAY_HRS;
+				break;
+			case 2:
+				daily_Wage = WAGE_PER_HR * PART_TIME_HRS;
+				break;
+			case 0:
+				break;
+			}
+			monthly_Wage = monthly_Wage + daily_Wage;
 		}
+		System.out.println("Monthly Wage : " + monthly_Wage);
 	}
 }
